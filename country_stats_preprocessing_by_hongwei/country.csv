@@ -1,0 +1,217 @@
+,location,continent,con-id
+0,Aruba,North America,1
+244,Afghanistan,Asia,2
+566,Angola,Africa,3
+806,Anguilla,North America,1
+1041,Albania,Europe,4
+1294,Andorra,Europe,4
+1548,United Arab Emirates,Asia,2
+1870,Argentina,South America,5
+2127,Armenia,Asia,2
+2449,Antigua and Barbuda,North America,1
+2691,Australia,Oceania,6
+3013,Austria,Europe,4
+3335,Azerbaijan,Asia,2
+3657,Burundi,Africa,3
+3887,Belgium,Europe,4
+4207,Benin,Africa,3
+4452,Bonaire Sint Eustatius and Saba,North America,1
+4681,Burkina Faso,Africa,3
+4930,Bangladesh,Asia,2
+5189,Bulgaria,Europe,4
+5441,Bahrain,Asia,2
+5763,Bahamas,North America,1
+6007,Bosnia and Herzegovina,Europe,4
+6258,Belarus,Europe,4
+6580,Belize,North America,1
+6818,Bermuda,North America,1
+7060,Bolivia,South America,5
+7310,Brazil,South America,5
+7632,Barbados,North America,1
+7876,Brunei,Asia,2
+8127,Bhutan,Asia,2
+8378,Botswana,Africa,3
+8608,Central African Republic,Africa,3
+8854,Canada,North America,1
+9176,Switzerland,Europe,4
+9498,Chile,South America,5
+9755,China,Asia,2
+10077,Cote d'Ivoire,Africa,3
+10325,Cameroon,Africa,3
+10576,Democratic Republic of Congo,Africa,3
+10825,Congo,Africa,3
+11071,Colombia,South America,5
+11326,Comoros,Africa,3
+11525,Cape Verde,Africa,3
+11766,Costa Rica,North America,1
+12020,Cuba,North America,1
+12267,Curacao,North America,1
+12511,Cayman Islands,North America,1
+12753,Cyprus,Europe,4
+13003,Czech Republic,Europe,4
+13325,Germany,Europe,4
+13647,Djibouti,Africa,3
+13890,Dominica,North America,1
+14129,Denmark,Europe,4
+14451,Dominican Republic,North America,1
+14773,Algeria,Africa,3
+15095,Ecuador,South America,5
+15417,Egypt,Africa,3
+15739,Eritrea,Africa,3
+15979,Western Sahara,Africa,3
+16184,Spain,Europe,4
+16505,Estonia,Europe,4
+16827,Ethiopia,Africa,3
+17076,Finland,Europe,4
+17398,Fiji,Oceania,6
+17690,Falkland Islands,South America,5
+17917,France,Europe,4
+18239,Faeroe Islands,Europe,4
+18495,Gabon,Africa,3
+18743,United Kingdom,Europe,4
+19065,Georgia,Asia,2
+19387,Guernsey,Europe,4
+19629,Ghana,Africa,3
+19877,Gibraltar,Europe,4
+20119,Guinea,Africa,3
+20366,Gambia,Africa,3
+20610,Guinea-Bissau,Africa,3
+20845,Equatorial Guinea,Africa,3
+21092,Greece,Europe,4
+21414,Grenada,North America,1
+21653,Greenland,North America,1
+21895,Guatemala,North America,1
+22169,Guam,Oceania,6
+22412,Guyana,South America,5
+22659,Hong Kong,Asia,2
+22731,Honduras,North America,1
+22979,Croatia,Europe,4
+23301,Haiti,North America,1
+23543,Hungary,Europe,4
+23801,Indonesia,Asia,2
+24123,Isle of Man,Europe,4
+24364,India,Asia,2
+24686,Ireland,Europe,4
+25008,Iran,Asia,2
+25330,Iraq,Asia,2
+25652,Iceland,Europe,4
+25974,Israel,Asia,2
+26296,Italy,Europe,4
+26618,Jamaica,North America,1
+26867,Jersey,Europe,4
+27109,Jordan,Asia,2
+27364,Japan,Asia,2
+27686,Kazakhstan,Asia,2
+27935,Kenya,Africa,3
+28191,Kyrgyzstan,Asia,2
+28434,Cambodia,Asia,2
+28756,Saint Kitts and Nevis,North America,1
+28992,South Korea,Asia,2
+29314,Kuwait,Asia,2
+29636,Laos,Asia,2
+29873,Lebanon,Asia,2
+30195,Liberia,Africa,3
+30440,Libya,Africa,3
+30698,Saint Lucia,North America,1
+30945,Liechtenstein,Europe,4
+31197,Sri Lanka,Asia,2
+31519,Lesotho,Africa,3
+31705,Lithuania,Europe,4
+32027,Luxembourg,Europe,4
+32349,Latvia,Europe,4
+32615,Morocco,Africa,3
+32899,Monaco,Europe,4
+33221,Moldova,Europe,4
+33473,Madagascar,Africa,3
+33714,Maldives,Asia,2
+33966,Mexico,North America,1
+34288,Marshall Islands,Oceania,6
+34307,Macedonia,Europe,4
+34629,Mali,Africa,3
+34865,Malta,Europe,4
+35150,Myanmar,Asia,2
+35390,Montenegro,Europe,4
+35634,Mongolia,Asia,2
+35882,Northern Mariana Islands,Oceania,6
+36113,Mozambique,Africa,3
+36352,Mauritania,Africa,3
+36599,Montserrat,North America,1
+36840,Mauritius,Africa,3
+37082,Malawi,Africa,3
+37315,Malaysia,Asia,2
+37637,Namibia,Africa,3
+37884,New Caledonia,Oceania,6
+38125,Niger,Africa,3
+38366,Nigeria,Africa,3
+38688,Nicaragua,North America,1
+38931,Netherlands,Europe,4
+39253,Norway,Europe,4
+39575,Nepal,Asia,2
+39897,New Zealand,Oceania,6
+40219,Oman,Asia,2
+40541,Pakistan,Asia,2
+40863,Panama,North America,1
+41116,Peru,South America,5
+41379,Philippines,Asia,2
+41701,Papua New Guinea,Oceania,6
+41942,Poland,Europe,4
+42198,Puerto Rico,North America,1
+42432,Portugal,Europe,4
+42697,Paraguay,South America,5
+42952,Palestine,Asia,2
+43207,French Polynesia,Oceania,6
+43450,Qatar,Asia,2
+43772,Romania,Europe,4
+44094,Russia,Europe,4
+44416,Rwanda,Africa,3
+44663,Saudi Arabia,Asia,2
+44923,Sudan,Africa,3
+45171,Senegal,Africa,3
+45434,Singapore,Asia,2
+45756,Solomon Islands,Oceania,6
+45788,Sierra Leone,Africa,3
+46018,El Salvador,North America,1
+46261,San Marino,Europe,4
+46583,Somalia,Africa,3
+46828,Serbia,Europe,4
+47093,South Sudan,Africa,3
+47318,Sao Tome and Principe,Africa,3
+47540,Suriname,South America,5
+47782,Slovakia,Europe,4
+48038,Slovenia,Europe,4
+48295,Sweden,Europe,4
+48614,Swaziland,Africa,3
+48861,Sint Maarten (Dutch part),North America,1
+49115,Seychelles,Africa,3
+49362,Syria,Asia,2
+49601,Turks and Caicos Islands,North America,1
+49838,Chad,Africa,3
+50080,Togo,Africa,3
+50338,Thailand,Asia,2
+50660,Tajikistan,Asia,2
+50860,Timor,Asia,2
+51100,Trinidad and Tobago,North America,1
+51349,Tunisia,Africa,3
+51603,Turkey,Asia,2
+51851,Taiwan,Asia,2
+52173,Tanzania,Africa,3
+52418,Uganda,Africa,3
+52658,Ukraine,Europe,4
+52911,Uruguay,South America,5
+53158,United States,North America,1
+53480,Uzbekistan,Asia,2
+53726,Vatican,Europe,4
+53976,Saint Vincent and the Grenadines,North America,1
+54220,Venezuela,South America,5
+54467,British Virgin Islands,North America,1
+54702,United States Virgin Islands,North America,1
+54940,Vietnam,Asia,2
+55262,Vanuatu,Oceania,6
+55268,Wallis and Futuna,Oceania,6
+55299,Kosovo,Europe,4
+55547,Yemen,Asia,2
+55768,South Africa,Africa,3
+56052,Zambia,Africa,3
+56295,Zimbabwe,Africa,3
+56536,World,,7
+56858,International,,7
