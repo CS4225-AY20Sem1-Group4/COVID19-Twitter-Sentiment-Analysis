@@ -21,3 +21,10 @@ We started with the idea of performing a time-based analysis of people’s senti
 To choose the specific timeframes for our dataset, we had to look at the timeline of when COVID-19 started. The first few cases of COVID-19 were identified in Wuhan City, China in December 2019. According to the World Health Organisation (WHO), the first few confirmed cases outside mainland China occurred in Japan, South Korea and Thailand in mid-January. On January 30th, the WHO declared the outbreak of COVID-19 to be a Public Health Emergency of International Concern. On March 11th, the WHO then declared it to be a pandemic. Hence, we decided to extract data from February to April. 
 
 We also decided to expand our analysis to many countries across the world. This allowed us to do a comparative analysis between countries. This can be looked at in two different ways -- people and policy maker’s point of view. People in countries that are not doing so well could look at what successful countries had done to successfully combat the virus and suggest similar actions to their respective country’s authorities. On the other hand, policymakers could look at what actions drive people’s sentiments in a positive or negative direction and hence, act accordingly.   
+
+### Architecture 
+
+<p align="center">
+  <img width="300" src="https://user-images.githubusercontent.com/35773953/101277303-78997880-37ee-11eb-8d9f-86fbb45ab132.png>
+</p>
+
