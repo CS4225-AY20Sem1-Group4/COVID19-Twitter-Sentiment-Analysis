@@ -24,6 +24,8 @@ We also decided to expand our analysis to many countries across the world. This 
 
 ### Architecture 
 
-|![the architecture](https://user-images.githubusercontent.com/35773953/101277564-46891600-37f0-11eb-8412-67d56c68ac1f.png)|
-|:--:|
-| *Overall Architecture* |
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/35773953/101277564-46891600-37f0-11eb-8412-67d56c68ac1f.png">
+  <br>
+    <em>Overall Architecture</em>
+</p>
