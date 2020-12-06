@@ -25,6 +25,6 @@ We also decided to expand our analysis to many countries across the world. This 
 ### Architecture 
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/35773953/101277303-78997880-37ee-11eb-8d9f-86fbb45ab132.png">
+  <img src="https://user-images.githubusercontent.com/35773953/101277564-46891600-37f0-11eb-8412-67d56c68ac1f.png">
 </p>
 
