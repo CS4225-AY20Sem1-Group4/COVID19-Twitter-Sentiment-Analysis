@@ -1,6 +1,29 @@
 # COVID19-Twitter-Sentiment-Analysis
 We are a group of undergraduate and graduate students from the National University of Singapore. As part of our Big Data Systems for Data Science module (CS4225/CS5425), we were tasked to find a trending topic that we found interesting, perform data analysis on a dataset larger than 10GB and lastly, draw new data science insights that can impact the society and improve people's lives. With this is mind, we embarked on a project that involved performing twitter sentiment analysis on over 1TB of data. 
 
+## Table of Contents 
+
+- [COVID19-Twitter-Sentiment-Analysis](#covid19-twitter-sentiment-analysis)
+  * [Introduction](#introduction)
+  * [Contributors](#contributors)
+  * [Methodology and Experimentation](#methodology-and-experimentation)
+    + [Approach](#approach)
+    + [Architecture](#architecture)
+    + [Methodologies](#methodologies)
+      - [COVID-19 Tweets Dataset](#covid-19-tweets-dataset)
+        * [Hydration](#hydration)
+        * [Pre-Processing](#pre-processing)
+        * [Sentiment Tool by Azure](#sentiment-tool-by-azure)
+        * [Post-Processing](#post-processing)
+        * [Presentation and Analysis](#presentation-and-analysis)
+          + [Front-end Implementation](#front-end-implementation)
+          + [Visualization](#visualization)
+      - [COVID-19 Country Statistics](#covid-19-country-statistics)
+  * [Discussion of Results](#discussion-of-results)
+    + [Visual Analysis](#visual-analysis)
+    + [Non-Visual Analysis](#non-visual-analysis)
+  * [Summary](#summary)
+  * [References](#references)
 
 ## Introduction 
 
@@ -13,7 +36,7 @@ Since the start of the pandemic, countries have been reporting their statistics 
 ## Contributors 
 
 
-## Methodology & Experimentation 
+## Methodology and Experimentation 
 
 ### Approach 
 
@@ -93,7 +116,7 @@ We decided to define a tweet as either positive, negative or neutral. We did thi
     <em>Sentiment Ratio Equation </em>
 </p>
 
-Using the equation shown above, we calculated the sentiment ratio per day per country. This will be eventually called by the frontend.  
+Using the equation shown above, we calculated the sentiment ratio per day per country. This method measures the proportion of positive tweets to negative tweets. If there are more positive tweets as compared to negative tweets, the proportion increases. Thus, we opted to use this metric for measurement and analysis as we felt it was more accurate and representative in gauging a country’s sentiment for a particular day as compared to simply calculating the average tweet sentiment scores for a country on a particualr day. We also opted to leave neutral tweets out of the equation as we were only concerned with the ratio of really positive tweets (i.e., positive rating > 0.5) to really negative tweets (i.e., negative rating > 0.5), discarding all other potential outliers which might disrupt the data.
 
 ##### Presentation and Analysis 
 
@@ -137,4 +160,13 @@ These are stored into a relational SQL Database for ease of queries for the fron
     <em>Country Statistics SQL Schema </em>
 </p>
 
+## Discussion of Results 
 
+### Visual Analysis 
+
+
+### Non-Visual Analysis 
+
+## Summary 
+
+## References 
