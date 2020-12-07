@@ -49,7 +49,7 @@ The dataset only contained the tweet ID and other metadata. The below figure ill
 
 ##### Hydration 
 
-Hydration is the process of extracting all of a tweet’s data from Twitter using Twitter’s API. To do this, we made use of twarc, an API which interacts with Twitter’s API and does the hydration for us. We contemplated on using stream processing (e.g Storm) but since Twitter’s API is rate limited to 300 requests per a 15-minute window for each Twitter Developer Account application, there was no point in using stream processing to achieve millisecond latency. This is because, after hydrating 300 requests in ~5 minutes, we would still have to wait for 10 minutes before being able to hydrate again. Thus, Twitter’s API was the main bottleneck in the hydration process. Moreover, storage was not a concern, meaning that we did not need to sieve out data and could store it all since Azure had scalable storage and we had the funds to scale our usage. As such, we decided to move away from the idea of using stream processing as it had minimal gains in our context.
+Hydration is the process of extracting all of a tweet’s data from Twitter using Twitter’s API. To do this, we made use of twarc, an API which interacts with Twitter’s API and does the hydration for us. We contemplated on using stream processing (e.g Storm) but since Twitter’s API is rate limited to 300 requests per a 15-minute window for each Twitter Developer Account application, there was no point in using stream processing to achieve millisecond latency. This is because, after hydrating 300 requests in ~5 minutes, we would still have to wait for 10 minutes before being able to hydrate again. 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/35773953/101278160-97027280-37f4-11eb-850d-c3f29381557c.png">
@@ -71,24 +71,70 @@ With the decision to move away from stream processing, we then looked as to how 
 
 Once the hydrated tweets were stored in the DBFS on Azure, we pre-processed the tweets using pyspark on Azure Databricks. We first dropped any unnecessary columns/fields. Following which, we cleaned the tweet’s text by removing symbols, dates, links etc. After cleaning the text, we identified the country of a tweet’s user by using pycountry to see if there was a match in the location field. We also reformatted the date field to make it more legible. Lastly, we removed stopwords and filtered the data frame to only contain English tweets from a select list of countries.
 
-There were some decisions made in the pre-processing process mentioned above. More specifically, we decided to only select countries which had the most English tweets per day on average -- India, Hong Kong, United States, Canada, United Kingdom, Malaysia, Singapore, France, Philippines, Thailand, Japan, China, Germany, Russia and Sweden. We also then filtered the tweets to only contain English tweets. 
+There were some decisions made in the pre-processing process mentioned above. More specifically, we decided to only select countries which had the most English tweets per day on average -- India, Hong Kong, United States, Canada, United Kingdom, Malaysia, Singapore, France, Philippines, Thailand, Japan, China, Germany, Russia and Sweden. We also then filtered the tweets to only contain English tweets. We originally planned to include tweets from other languages so that we could account for the sentiments of people of other languages. However, we were pressed for time and given that Azure’s sentiment analysis model takes a fair amount of time to complete, we did not want the sentiment analysis portion to be another bottleneck. Thus, we reduced the dataset size to avoid further delays. 
+
 
 ##### Sentiment Tool by Azure 
 
-Using Azure Databricks, the pre-processed data is read from the DBFS. An API endpoint to Azure’s Text Analytics API / NLTK is sent for each tweet. The respective services will return their prediction for each tweet. Using Databricks again, we stored the raw prediction along with the tweet back to the DBFS. In this CRUD (create-read-update-delete) process, we optimised the performance by directly connecting the DBFS to Azure Databricks. There was an alternative method where we could mount the DBFS storage directly onto Databricks This method would have incurred additional writing when moving the updated data back from the mounted storage to the DBFS.  Hence, we chose to write to DBFS directly. 
-When deciding upon which sentiment tool to use for our use case, we drew inspiration from what we had learnt in our prior research [1]. They had used NRC Emotion Lexicon where they could categorize the sentiments of the tweets into 8 emotions: fear, joy, anger, disgust, sadness and trust.  We considered using NRC Emotion Lexicon but we decided not to overcomplicate things by extracting emotions that makes it even harder to properly quantify public sentiments. In addition, emotions such as sarcasm and irony were not detected. Thus, we stuck to simply classifying tweets into either positive, negative or neutral. We experimented with two choices -- Microsoft Azure’s Text Analytics Model and Natural Language Toolkit. 
+We adopted Microsoft Azure’s pre-trained Text Analytics model. It has a pre-trained machine learning model that returns the relative prediction of positive, neutral and negative sentiment. The sum of the positive, neutral and negative will always be 1. 
 
-We adopted Microsoft Azure’s pre-trained Text Analytics model. It has a pre-trained machine learning model that returns the relative prediction of positive, neutral and negative sentiment. The sum of the positive, neutral and negative will always be 1.  
+Using Azure Databricks, the pre-processed data is read from the DBFS. An API endpoint to Azure’s Text Analytics API is sent for each tweet where it will return it's prediction for each tweet. Using Databricks again, we stored the raw prediction along with the tweet back to the DBFS. In this CRUD (create-read-update-delete) process, we optimised the performance by directly connecting the DBFS to Azure Databricks. There was an alternative method where we could mount the DBFS storage directly onto Databricks. This method would have incurred additional writing when moving the updated data back from the mounted storage to the DBFS.  Hence, we chose to write to DBFS directly. 
 
 As the Text Analytic requires a client model, we wrapped it using an express application. Then, we deployed the application on Azure using “app services”. In this way, we had a static IP address to call from. All that had to be done was to put a request with text in JSON to the IP address and we got the prediction details in the response. In Databricks, we sent every tweet to the API to get the sentiment analysis. After which, we stored the respective sentiment result with 3 new columns as positive, neutral and negative. Finally, we saved the tweets along with their respective sentiments into a file so that further analysis can be done.
 
 
 ##### Post-Processing 
 
+We decided to define a tweet as either positive, negative or neutral. We did this by observing if either of the three sentiment scores of a tweet is more than 0.5. After defining each tweet, we aggregated the data, count the number of the positive and negative per country per day before storing it into the SQL database where it would be further analyzed from front-end framework. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/35773953/101312848-c4e8c500-388f-11eb-8c09-ddf240e218ab.png">
+  <br>
+    <em>Sentiment Ratio Equation </em>
+</p>
+
+Using the equation shown above, we calculated the sentiment ratio per day per country. This will be eventually called by the frontend.  
+
 ##### Presentation and Analysis 
+
+At this stage, the processed COVID-19 tweets dataset and COVID-19 Country Statistics are stored in the SQL database. A dedicated section for COVID-19 Country statistics is detailed after this. We wanted to present the data to a layman user so that it is visually appealing and easy to understand. The presentation involves displaying the data on meaningful charts and analysis then involves studying these charts for possible correlations. 
+
+###### Front-end Implementation 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/35773953/101313076-59532780-3890-11eb-8973-9a137466e059.png">
+  <br>
+    <em>Sentiment Ratio Equation </em>
+</p>
+
+The front-end is built using React js. React was chosen because we were familiar with it and this allowed us to build the front-end quickly. The world map is built using the leaflet library and charts using the charts.js library. 
+
+World map allows us to quickly see where the covid cases are around the world based on countries. Charts allow us to see trends between sentiments and variables such as the number of cases, deaths, tests, government stringency index, hospital beds, handwashing facility.
+
+The back-end server is built using node and express to serve the response to the front-end. The backend-server uses tedious to retrieve rows of data (sentiments, covid cases, deaths, stringency index, etc) from the SQL database. The rows of data are then processed into JSON objects for the front-end to consume.
+
+
+###### Visualization 
+
+Line charts were used for sentiment vs time as a base for comparison. For example, to find out if there is a possible correlation between sentiment vs government stringency index over a period of time, the two-line charts were combined together to give a clear visual representation on the movement between the value of sentiment and government stringency index over time. Showcasing the general trend for each line and comparing them side by side allows us to see whether a change in one drives a change in the other.
 
 #### COVID-19 Country Statistics 
 
+The country statistics dataset [2] comes as a compiled CSV with reported data provided by each country.
 
+We pre-processed the data to extract columns of the necessary information that we wanted. These information include:
+  1. Number of daily new cases
+  2. Number of daily new tests
+  3. Number of daily new deaths
+  4. Number of hospital beds available per thousand residents
+  5. Share of population with access to basic hand washing facilities
+  6. Government stringency index (Measure of the extent of government actions towards covid)
+These are stored into a relational SQL Database for ease of queries for the front-end. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/35773953/101313360-f6ae5b80-3890-11eb-90be-cb201008c55a.png">
+  <br>
+    <em>Country Statistics SQL Schema </em>
+</p>
 
 
