@@ -21,6 +21,7 @@ We are a group of undergraduate and graduate students from the National Universi
 - [Discussion of Results](#discussion-of-results)
   * [Visual Analysis](#visual-analysis)
   * [Non-Visual Analysis](#non-visual-analysis)
+- [Impact of our Findings](#impact-of-our-findings)
 - [Summary](#summary)
 - [References](#references)
 
@@ -163,9 +164,84 @@ These are stored into a relational SQL Database for ease of queries for the fron
 
 ### Visual Analysis 
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/35773953/101315630-e2b92880-3895-11eb-9134-6c201f00cf56.png">
+  <br>
+    <em>Sentiment vs Time (Red Line) & Government Response Stringency Index (Green Line) vs Time for Canada </em>
+</p>
+
+| Pearson's R | P-value | Spearman's Rho | P-value | 
+| --- | --- | --- | --- | 
+| 0.8420406632026404 | 1.25369987414744e-19 | 0.8289424303915198 | 1.445122426988031e-18 | 
+
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/35773953/101316031-ab974700-3896-11eb-8c87-be6f00ff16b4.png">
+  <br>
+    <em>Sentiment vs Time (Red Line) & Government Response Stringency Index (Green Line) vs Time for France </em>
+</p>
+
+| Pearson's R | P-value | Spearman's Rho | P-value | 
+| --- | --- | --- | --- | 
+| 0.7758286880757572 | 4.9296130085577346e-15 | 0.8232895332088125 | 3.897050806530124e-18 | 
+
+From the results generated, it can be seen that for some graphs, there are strong correlations. For example, with time, it is found that a Country’s Sentiment Rating increases as the Country’s Government Response Stringency Index (an indicator of the number of measures taken by a Country’s Government to battle Covid) increase. On March 11th, Justin Trudeau, the Prime Minister of Canada announced a $1 billion response fund and on March 13th, the Canadian federal government announced that it was preparing a stimulus package to help those affected. These announcements contributed to Canadian Government Response Stringency Index. As a result, we could see an increase in positive sentiments. The same could also be said for France. On March 12th, Emmanuel Macron announced that all schools and universities were to be closed. The following day, he announced the closure of all pubs, restaurants, cinemas and nightclubs. A few days later, he announced a nationwide lockdown. The French government responded differently to the Canadian government but its stringency index still rose. 
+
+In hindsight, this correlation, be it stimulus packages or lockdown measures, makes sense as the general population would tend to feel much safer and happier as their Government starts to take measures in order to protect them from the virus. Furthermore, to solidify our claims on this correlation, this correlation was observed to be present in more than two countries mentioned above and the actual values calculated from known correlation metrics (Pearson and Spearman) indicates a strong positive correlation. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/35773953/101316036-af2ace00-3896-11eb-941b-51b0a66e4da2.png">
+  <br>
+    <em>No of COVID Deaths vs Time (Red Line) & Government Response Stringency Index (Green Line) vs Time for Canada </em>
+</p>
+
+However, we observed that there were graphs that showed promise of correlation but made no sense at all. This can be attributed to coincidence and will be explained in further detail under the Non-Visual Analysis section.
 
 ### Non-Visual Analysis 
 
+To determine the extent of correlation between the Sentiments obtained with each COVID-19 Country Dataset, we tried out 3 of the commonly used methods to obtain a correlation score, which was Pearson’s, Spearman’s and Kendall’s correlation. 
+
+As several spikes were observed in certain countries that did not represent the general trend, this resulted in some countries having no correlation when using only Pearson’s. As a result, we also included Spearman’s correlation as an additional comparison as a ranked correlation provides a better snapshot of the trend and it is less susceptible to outliers.
+
+| Type | Mean Person's Correlation | Mean Pearson's P-Value | Mean Spearman Correlation | Mean Spearman's P-value |
+| --- | --- | --- | --- | --- | 
+| New Daily Cases | 0.426748 | 5.127948e-03 | 0.612606 | 6.230477e-04 |
+| New Daily Deaths | 0.320437	 | 2.540525e-02 | 0.511649 | 9.900429e-03 |
+| New Daily Tests | 0.471147	 | 5.468281e-01	 | 0.480766	| 4.054155e-03 | 
+| Available Hospital Beds per 1000 People | 1.605326e-17	 | 1.0 | NaN | NaN |
+| Access to Handwashing | -2.440037e-16	 | 1.0 | NaN | NaN |
+| Government Strigency Index | 0.619291	| 3.511850e-03 | 0.681723 | 7.577993e-02 |
+<p align="center">
+    <em> Average (mean) of all Countries' sentiments vs COVID-19 Data Metric </em>
+</p>
+
+The mean of the correlation scores of each country is taken from each metric to first observe a general trend in the data. From the above, we observe that there is the strongest correlation between an increase in Government Stringency Index and Sentiment of the public, showing that actions taken by the government towards COVID-19 results in people being more positive when talking about the Coronavirus. This can be supported with a medium correlation between tests and sentiments, as the number of tests also increased with government actions. 
+
+Even though Cases and Deaths are correlated too, we identified that they are not the main factors that directly cause sentiment to increase as they are only indirectly related. Cases and Deaths increased only due to the mathematical progression of disease spreading while still in the early cycle. This can be supported by the data from China, as the disease spread started earlier than other countries, showing that the cases and deaths do not always increase with an increase in Sentiment. For China, there was a negative correlation for Sentiments vs Cases and Sentiments vs Deaths instead. Therefore, the correlation between Sentiments vs Cases and Sentiments vs Deaths can be attributed to a coincidence.
+
+
+## Impact of our Findings 
+
+These results can be used by companies/government bodies to identify correlations between a country’s sentiment and respective COVID-19 events (Government Actions via the Government Stringency Index, Daily Cases and Daily Deaths etc.). With correlations, the possibilities are endless. For example, as shown in previous sections, most countries generally become more positive with more government actions. Thus, to make the general population of a country happier, the government can step up its efforts in battling COVID-19 . 
+
+We also observed that a high government stringency index over 2 months will result in a decrease in the number of daily new cases, as seen in the data from China. From this, other countries may learn to choose to increase the government stringency before the cases increase to reduce the impact of the disease outbreak. For Feb - Apr 2020, most countries only increased government stringency once the cases and deaths increased. Countries should not act in this same way in the future as it results in a huge loss in human life.
+
+Companies can also use this data for various means. One such example is targeted ads. Companies would generally prefer to list their ads when the general population is in a more positive and happier state as compared when the population is in a more negative state. This is because, naturally speaking, the happier one is, the more likely one is to spend. And thus, for huge companies who can afford to spend millions in advertisements, advertising at the right time (e.g., when the country’s sentiment is predicted to improve as the government announces new actions to battle covid) can increase their sales by a significant amount. These results can also be used by the general public, in efforts to shine a light on the impact their government’s actions in confronting COVID-19 has had on them.
+
+These results can be impactful in many ways. We hope that this project at least improves the awareness of how people in various countries are feeling towards the current pandemic. Of course, the impact can be magnified if government bodies/companies choose to act on this as they then become aware. Thus, if it is acted upon, the impact could be huge. Companies profit as they then now have a better gauge of when to advertise and the general population of countries becomes happier as their governments now have a gauge of how the general public feels about certain pandemic events.
+
+
+
 ## Summary 
 
+The main objective of this project is to gain insights from big data as efficiently as possible. Here, we chose to analyze the effect Covid-19 has had on society via sentiment analysis on Covid-19 related tweets. The general data pipeline is as follows: hydration → pre-processing → prediction → post-processing → presentation → analysis. Firstly, using Twitter’s API and multiple Virtual Machines on Azure Cloud, we are able to hydrate the original dataset (tweet IDs) in order to get the tweet texts. Secondly, using the Apache Spark framework, we are able to efficiently pre-process the hydrated tweets (e.g., remove unnecessary columns/rows and clean the tweet text etc.). Thirdly, with the help of pre-trained machine learning models, we are able to then predict the sentiment of each tweet. Fourthly, post-processing of the data would entail using the Apache Spark framework once again to aggregate tweets for presentation (e.g., group tweets by country and day and calculate the average sentiment rating for each country on each day etc.). Presentation of data would then entail displaying the data on specific charts so as to gain insights on the data. Lastly, analysis of data would entail identifying possible correlations on the charts generated via different methods (e.g., visual and Pearson's correlation etc.) and then back up our findings with real-world data (e.g., government actions).
+
+In terms of architecture, the frontend (React) would be responsible for displaying the data on their respective charts. The backend (Azure Cloud) would basically contain the initial data sets, pre-processed data, post-processed data and multiple virtual machines to hydrate the initial data sets. Using Azure Databricks, a Distributed File System (DBFS) and SQL Database will be set up. Apache Spark will also be executed on Azure Databricks. Thus, almost everything will be done via the cloud, as mentioned during the lecture, “DB evolving towards BD”.
+
+All in all, this project hopes to identify possible correlations between the society’s sentiment towards the current pandemic and events which occur during the pandemic. Keeping in mind that correlation does not necessarily entail causation, we hope to give world bodies an estimate on how certain events might be seen by the public. Thus, in turn, events which take a stronger toll on society might attract more attention from the various world bodies.
+
+
 ## References 
+
+[1] - Umair Qazi, Muhammad Imran, Ferda Ofli, "GeoCoV19: A Dataset of Hundreds of Millions of Multilingual COVID-19 Tweets with Location Information", IEEE Dataport, 2020. [Online]. Available: http://dx.doi.org/10.21227/et8d-w881. Accessed: Oct. 07, 2020.
+[2] - Diana Beltekian, Daniel Gavrilov, Charlie Giattino, Joe Hasell, Bobbie Macdonald, Edouard Mathieu, Esteban Ortiz-Ospina, Hannah Ritchie, Max Roser, “Complete Covid-19 Dataset”, GitHub, 2020. [Online]. Available: https://github.com/owid/covid-19-data/tree/master/public/data/. Accessed: Oct. 06, 2020.
