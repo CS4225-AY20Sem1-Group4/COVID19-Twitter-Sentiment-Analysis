@@ -244,4 +244,6 @@ All in all, this project hopes to identify possible correlations between the soc
 ## References 
 
 [1] - Umair Qazi, Muhammad Imran, Ferda Ofli, "GeoCoV19: A Dataset of Hundreds of Millions of Multilingual COVID-19 Tweets with Location Information", IEEE Dataport, 2020. [Online]. Available: http://dx.doi.org/10.21227/et8d-w881. Accessed: Oct. 07, 2020.
+
+
 [2] - Diana Beltekian, Daniel Gavrilov, Charlie Giattino, Joe Hasell, Bobbie Macdonald, Edouard Mathieu, Esteban Ortiz-Ospina, Hannah Ritchie, Max Roser, “Complete Covid-19 Dataset”, GitHub, 2020. [Online]. Available: https://github.com/owid/covid-19-data/tree/master/public/data/. Accessed: Oct. 06, 2020.
