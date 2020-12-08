@@ -35,6 +35,20 @@ Since the start of the pandemic, countries have been reporting their statistics 
 
 ## Contributors 
 
+<a href="https://github.com/LIU-TIANHANG">
+  <img src="https://avatars1.githubusercontent.com/u/32838530?s=100&v=4">
+</a>
+<br>
+<a href="https://github.com/rafflesandrison">
+  <img src="https://github.com/rafflesandrison.png?size=50">
+</a>
+<br>
+<a href="https://github.com/Jeevz10">
+  <img src="https://github.com/Jeevz10.png?size=50">
+</a>
+<br>
+
+
 
 ## Methodology and Experimentation 
 
