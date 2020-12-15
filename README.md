@@ -37,9 +37,11 @@ Since the start of the pandemic, countries have been reporting their statistics 
 
 <a href="https://github.com/LIU-TIANHANG">
   <img src="https://github.com/LIU-TIANHANG.png?size=50" width="50" height="50">
+ Tianhang
 </a>
-Tianhang 
+
 <br>
+
 <a href="https://github.com/rafflesandrison">
   <img src="https://github.com/rafflesandrison.png?size=50">
  Raffles
@@ -48,18 +50,23 @@ Tianhang
 <br>
 <a href="https://github.com/rajdeephu">
   <img src="https://github.com/rajdeephu.png?size=50">
+ Rajdeep
 </a>
-Rajdeep 
+ 
 <br>
+
 <a href="https://github.com/sylchw">
   <img src="https://github.com/sylchw.png?size=50">
+ Sylvester
 </a>
-Sylvester 
+ 
 <br>
+
 <a href="https://github.com/Jeevz10">
   <img src="https://github.com/Jeevz10.png?size=50">
+ Jeevan
 </a>
-Jeevan 
+ 
 <br>
 
 
