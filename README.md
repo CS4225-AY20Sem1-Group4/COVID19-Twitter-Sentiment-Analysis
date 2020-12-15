@@ -40,33 +40,46 @@ Since the start of the pandemic, countries have been reporting their statistics 
  Tianhang
 </a>
 
+Tweets Hydration, Setting up Azure cloud architecture and resource allocation, 
+Prediction with Azure Text Analytics,
+Aggregation of data and writing to SQL Database 
+
 <br>
+<br> 
 
 <a href="https://github.com/rafflesandrison">
   <img src="https://github.com/rafflesandrison.png?size=50">
  Raffles
 </a>
- 
+
+Front-End Visualization, Backend for retrieval of data rows from Azure SQL Server 
+
 <br>
+<br>
+
 <a href="https://github.com/rajdeephu">
   <img src="https://github.com/rajdeephu.png?size=50">
  Rajdeep
 </a>
- 
+Tweets Hydration, Tweets Pre-Processing, Tweets Post-Processing and Data Analysis 
+
+<br>
 <br>
 
 <a href="https://github.com/sylchw">
   <img src="https://github.com/sylchw.png?size=50">
  Sylvester
 </a>
- 
+
+Tweets Hydration, Setting up Azure Resources, Tweets Post Processing, Data Analysis 
+<br>
 <br>
 
 <a href="https://github.com/Jeevz10">
   <img src="https://github.com/Jeevz10.png?size=50">
  Jeevan
 </a>
- 
+Tweets Hydration, Tweets Pre-Processing, Data Analysis 
 <br>
 
 
